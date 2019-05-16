@@ -1,0 +1,51 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main() {
+	int cases;
+	cin>>cases;
+    int test[cases];
+	for(int w=0;w<cases;w++)
+	{
+	    cin>>test[w];
+	}
+	for(int q=0;q<cases;q++)
+	{
+	int a = test[q];
+	int ar[32];
+    int i=0;
+    while(a>0)
+    {   //cout<<i<<"\n";
+        ar[i]=a%2;
+        //cout<<"----"<<ar[i]<<"\n";
+        a=a/2;
+        i++;
+    }
+    
+    
+    int br[32];
+    for(int j=0;j<32;j++)
+    {
+       br[j]=0;
+    }
+    for(int j=0;j<i;j++)
+    {
+        //cout<<j<<"\n";
+        br[j]=ar[j];
+    }
+    int j=32;
+    int decimalNumber = 0, c = 0;
+    while(j>=0)
+    {   
+        
+        decimalNumber += ar[j]*pow(2,c);
+        j--;
+        c++;
+        //cout<<decimalNumber<<"\n";
+    }
+    
+    cout<<"\n"<<decimalNumber;
+	}
+	return 0;
+}
