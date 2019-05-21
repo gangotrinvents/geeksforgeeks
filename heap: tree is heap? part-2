@@ -1,0 +1,18 @@
+bool isHeap(Node * tree)
+{
+    // Your code here
+    if (!tree)
+        return true;
+    int largest = tree->data;
+    if (tree->left)
+        if (tree->left->data > tree->data)
+            largest = tree->left->data;
+    
+    if (tree->right)
+        if (tree->right->data > tree->data)
+            largest = tree->right->data;
+    
+    if (largest != tree->data) 
+        return false;
+    return isHeap(tree->left) && isHeap(tree->right);
+}
