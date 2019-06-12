@@ -1,0 +1,34 @@
+vector<string> split_string(string);
+
+// Complete the minimumBribes function below.
+void minimumBribes(vector<int> q) {
+int count=1;
+int set = 0;
+int total=0;
+for(auto i=q.begin();i!=q.end();++i)
+{
+int find=0;
+if(*i != *q.end())
+    {
+        find = *i - *(i+1);
+    }
+if(find > 2)
+    {
+        set=1;
+        break;
+    }
+else if(find > 0)
+    {
+        total= total + find;
+    }
+count = count+1;
+}
+if (set>=1)
+    {
+        cout<<"Too chaotic"<<"\n";
+    }
+else
+    {
+        cout<<total<<"\n";
+    }
+}
